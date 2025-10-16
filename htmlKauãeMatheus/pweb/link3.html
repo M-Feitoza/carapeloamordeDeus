@@ -4,42 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matheus Feitoza e Kauã César</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script>
-        let linguagens = Array();
-
-        linguagens[0] = 'Dart';
-        linguagens[1] = 'PHP';
-        linguagens[2] = 'java';
-        linguagens[3] = 'pyton';
-        linguagens[4] = 'perl';
-        linguagens[5] = 'ruby on rails';
-        linguagens[6] = 'C++';]
-
-    function linguagens(){
-        const container = document.getElementById('minhaDiv');
-        for (var i=0; 1 < linguagens.lenght; i++) {
-            var tag = '<h5>' + i + '-' + linguagens[i] + '</h5>';
-            container.innerHTML += tag;
-        }
-    } 
-    function Posicaolinguagens(){
-        var indice = prompt ('Qual posição deseja consultar?');
-        alert(linguagens[indice]);
-    }   
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <h1>Atividade 03</h1>
     <h1>Array de Linguagens</h1>
-    <button onclick="linguagens()">Criar array</button> <br><br>
+    <button onclick="mostrarListaLinguagens()">Mostrar linguagens</button><br><br>
     <button onclick="Posicaolinguagens()">Escolher posição</button>
     <div id="minhaDiv"></div>
-    
+
     <hr/>
     <p>Matheus Feitoza e Kauã César</p>
     <a style="text-decoration: none;" href="index.html">Voltar</a><br/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        let linguagens = [];
+        linguagens[0] = 'Dart';
+        linguagens[1] = 'PHP';
+        linguagens[2] = 'Java';
+        linguagens[3] = 'Python';
+        linguagens[4] = 'Perl';
+        linguagens[5] = 'Ruby on Rails';
+        linguagens[6] = 'C++';
+
+        function mostrarListaLinguagens() {
+            const container = document.getElementById("minhaDiv");
+            container.innerHTML = '';
+            for (let i = 0; i < linguagens.length; i++) {
+                let tag = `<h5>${i} - ${linguagens[i]}</h5>`;
+                container.innerHTML += tag;
+            }
+        }
+
+        function Posicaolinguagens() {
+            let indice = prompt('Qual posição deseja consultar?');
+            if (indice >= 0 && indice < linguagens.length) {
+                alert(linguagens[indice]);
+            } else {
+                alert("Índice inválido!");
+            }
+        }
+    </script>    
 </body>
 </html>
-
