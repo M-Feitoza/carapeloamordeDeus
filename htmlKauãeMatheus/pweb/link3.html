@@ -12,6 +12,11 @@
     <button onclick="mostrarListaLinguagens()">Mostrar linguagens</button><br><br>
     <button onclick="Posicaolinguagens()">Escolher posição</button>
     <div id="minhaDiv"></div>
+    <hr/>
+
+    <button onclick="mostrarListaFrutas()">Mostrar frutas</button><br><br>
+    <button onclick="Posicaofrutas()">Escolher posição</button>
+    <div id="suaDiv"></div>
 
     <hr/>
     <p>Matheus Feitoza e Kauã César</p>
@@ -40,6 +45,28 @@
             let indice = prompt('Qual posição deseja consultar?');
             if (indice >= 0 && indice < linguagens.length) {
                 alert(linguagens[indice]);
+            } else {
+                alert("Índice inválido!");
+            }
+        }
+        let frutas = [];
+        frutas[0] = 'maçã';
+        frutas[1] = 'banana';
+        frutas[2] = 'uva';
+
+        function mostrarListaFrutas() {
+            const container = document.getElementById("suaDiv");
+            container.innerHTML = '';
+            for (let i = 0; i < frutas.length; i++) {
+                let tag = `<h5>${i} - ${frutas[i]}</h5>`;
+                container.innerHTML += tag;
+            }
+        }
+
+        function Posicaofrutas() {
+            let indice = prompt('Qual posição deseja consultar?');
+            if (indice >= 0 && indice < frutas.length) {
+                alert(frutas[indice]);
             } else {
                 alert("Índice inválido!");
             }
