@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Feitoza e Kauã César</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Atividade 04</h1>
+    <h1>Pop e Push</h1>
+    <button onclick="mostrarpessoas()">Mostrar pessoas</button>
+    <button onclick="Posicaopessoas()">Escolher pessoa</button>
+    <button onclick="Adicionarpessoas()">Adicionar pessoas</button>
+    <button onclick="remover()">Remover pessoas</button>
+    <button onclick="limpar()">Limpar lista</button>
+    <div id="minhaDiv"></div>
+
+    <hr/>
+    <p>Matheus Feitoza e Kauã César</p>
+    <a style="text-decoration: none;" href="index.html">Voltar</a><br/>
+
+    <script>
+        
+        let pessoas = [];
+        pessoas[0] = 'Ana';
+        pessoas[1] = 'Brenno';
+        pessoas[2] = 'Carla';
+
+        function mostrarpessoas() {
+            const container = document.getElementById("minhaDiv");
+            container.innerHTML = '';
+            for (let i = 0; i < pessoas.length; i++) {
+                let tag = `<h5>${i} - ${pessoas[i]}</h5>`;
+                container.innerHTML += tag;
+            }
+        }
+
+        function Posicaopessoas() {
+            let indice = prompt('Qual posição deseja consultar?');
+            if (indice >= 0 && indice < pessoas.length) {
+                alert(pessoas[indice]);
+            } else {
+                alert("Índice inválido!");
+            }
+        }
+        
+        function Adicionarpessoas() {
+            var nome = prompt('Qual o nome da pessoa?')
+            pessoas.push(nome);
+            mostrarpessoas();
+        }
+        function remover(){
+            if (pessoas.length === 0) {
+                alert('A pilha está vazia');
+            } else {
+                let removido = pessoas.pop();
+                alert('Removido:' + removido);
+                mostrarLista();
+            }
+        }
+        function limpar(){
+            pessoas=[];
+            mostrarLista();
+        }
+    </script>    
+</body>
+</html>
 
