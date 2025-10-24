@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Pessoas</title>
+
+  <script>
+    
+    let pilhaPessoas = [];
+
+    function mostrarLista() {
+      const container = document.getElementById('minhaDiv');
+      container.innerHTML = ''; 
+
+      for (let i = 0; i < pilhaPessoas.length; i++) {
+        const pessoa = pilhaPessoas[i];
+        const tag = '<h5>' + i + '- Titulo: ' + pessoa.nome + ' | Autor: '+ pessoa.contato + '| - Ano: ' + pessoa.ano + '</h5>';
+        container.innerHTML += tag;
+      }
+    }
+	
+	function limpaCampos() {
+	  document.getElementById('nome').value = '';
+      document.getElementById('contato').value = '';
+      document.getElementById('ano').value = '';
+	}
+
+    function adicionar() {
+	  // pega os valores digitados nos inputs
+  	  const nome = document.getElementById('nome').value;
+      const contato = document.getElementById('contato').value;
+      const ano = document.getElementById('ano').value;
+
+      pilhaPessoas.push({ nome, contato, ano });
+
+      // limpa os campos e atualiza a lista
+	  limpaCampos();
+      mostrarLista();
+    }
+
+    function posicao() {
+      const indice = Number(prompt('Qual posição da lista deseja consultar?'));
+
+      if (indice < 0 || indice >= pilhaPessoas.length) {
+        alert('Posição inválida!');
+        return;
+      }
+
+      const pessoa = pilhaPessoas[indice];
+      alert('Na posição ' + indice + ' está: Titulo: ' + pessoa.nome + ' - Autor: ' + pessoa.contato + '- ano:' + pessoa.ano);
+    }
+    
+    function limparLista() {
+      pilhaPessoas = [];
+      mostrarLista();
+    }
+
+    function remover() {
+      if (pilhaPessoas.length === 0) {
+        alert('A pilha está vazia!');
+      } else {
+        const removido = pilhaPessoas.pop();
+        alert('Removido: ' + removido.nome + ' - ' + removido.contato);
+        mostrarLista();
+      }
+    }
+
+    function inverterPilha() {
+      pilhaPessoas.reverse();
+      mostrarLista();
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Lista de Livros</h1>
+
+	<label>Titulo:</label>
+	<input type="text" id="nome" placeholder="Digite o Titulo"> 
+
+	<label>Autor:</label>
+	<input type="text" id="contato" placeholder="Digite o Autor">
+    
+    <label>Ano:</label>
+	<input type="text" id="ano" placeholder="Digite o ano">
+
+	<button onclick="adicionar()">Publicar</button>
+	
+	
+	<hr>
+
+    <button onclick="posicao()">Posição</button>
+    <button onclick="remover()">Remover Último</button>
+    <button onclick="limparLista()">Limpar Lista</button>
+    <button onclick="inverterPilha()">Inverter</button>
+
+    <br><br>
+  
+    <div id="minhaDiv"></div>
+  
+    <hr>
+  
+</body>
+</html>
